@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rathnew Driving School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:       #f8f7f4;
+    --grey:        #efefec;
+    --grey-mid:    #e5e4e0;
+    --grey-light:  #d8d7d3;
+    --muted:       #888884;
+    --body-text:   #4a4a48;
+    --white:       #111110;
+    --orange:      #e8622a;
+    --orange-dark: #cc501f;
+    --yellow:      #f0b429;
+    --radius:      3px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* PLACEHOLDER */
+  .ph {
+    background: var(--grey-mid);
+    border: 2px dashed rgba(232,98,42,0.3);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--muted);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+  }
+  .ph svg { opacity: 0.35; flex-shrink: 0; }
+  .ph p { opacity: 0.6; max-width: 170px; line-height: 1.4; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: rgba(248,247,244,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(232,98,42,0.15);
+  }
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta {
+    background: var(--orange) !important;
+    color: var(--white) !important;
+    padding: 8px 22px;
+    border-radius: var(--radius);
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--orange-dark) !important; }
+
+  /* BUTTONS */
+  .btn-orange {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 15px 34px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-orange:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 34px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    border: 1.5px solid rgba(0,0,0,0.18);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+  .btn-dark {
+    display: inline-block;
+    background: #111110;
+    color: #f8f7f4;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 15px 34px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-dark:hover { background: #222; }
+
+  /* LABELS */
+  .label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.74rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .label::before { content: ''; width: 22px; height: 2px; background: var(--orange); flex-shrink: 0; }
+
+  .section-h {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  /* FADE UP */
+  .fu { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .fu.in { opacity: 1; transform: none; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding-top: 68px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Horizontal stripe instead of diagonal */
+  .hero::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 0;
+    height: 6px;
+    background: var(--orange);
+    z-index: 3;
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 56px 100px 48px;
+    border-right: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.76rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-eyebrow::before { content: ''; width: 22px; height: 2px; background: var(--orange); }
+
+  .hero-h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.4rem, 6vw, 5.8rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+  .hero-h1 em { font-style: normal; color: var(--orange); display: block; }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--body-text);
+    max-width: 400px;
+    margin-bottom: 36px;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .hero-stats {
+    display: flex;
+    gap: 36px;
+    margin-top: 52px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(0,0,0,0.07);
+    flex-wrap: wrap;
+  }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2.6rem;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .stat-lbl { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 3px; }
+
+  /* Hero right — stacked images */
+  .hero-right {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 0;
+  }
+  .hero-img-top .ph { height: 100%; border-radius: 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .hero-img-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+  .hero-img-bottom .ph {
+    border-radius: 0;
+    border: none;
+    aspect-ratio: 4/3;
+    border-right: 1px solid rgba(0,0,0,0.05);
+  }
+  .hero-img-bottom .ph:last-child { border-right: none; }
+
+  /* ── TICKER STRIP ── */
+  .ticker {
+    background: var(--orange);
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex;
+    animation: ticker 20s linear infinite;
+  }
+  .ticker-item {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(240,238,234,0.85);
+    padding: 0 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .ticker-item::after { content: '//'; opacity: 0.4; font-weight: 400; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── SERVICES ── */
+  .services-section {
+    padding: 100px 48px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .services-head { margin-bottom: 52px; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: var(--radius);
+    overflow: hidden;
+    gap: 1px;
+    background: rgba(0,0,0,0.04);
+  }
+  .svc {
+    background: var(--grey);
+    padding: 36px 30px 40px;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .svc:hover { background: #e0deda; }
+  .svc-icon { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+  .svc-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+  .svc-desc { font-size: 0.86rem; color: var(--body-text); line-height: 1.65; }
+  .svc-arrow {
+    position: absolute;
+    bottom: 22px; right: 22px;
+    color: var(--orange);
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.2s;
+  }
+  .svc:hover .svc-arrow { opacity: 1; transform: translateX(0); }
+
+  /* ── BANNER ── */
+  .banner {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+  }
+  .banner .ph { height: 100%; border-radius: 0; border-left: none; border-right: none; }
+  .banner-over {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(248,247,244,0.88) 0%, rgba(248,247,244,0.35) 100%);
+    display: flex;
+    align-items: center;
+    padding: 0 56px;
+    pointer-events: none;
+  }
+  .banner-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--white);
+  }
+  .banner-text span { color: var(--orange); }
+  .banner-sub { font-size: 1rem; color: rgba(17,17,16,0.65); margin-top: 10px; font-weight: 300; }
+
+  /* ── ABOUT ── */
+  .about-section {
+    padding: 100px 48px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 52px;
+  }
+  .about-imgs { position: relative; padding-bottom: 56px; }
+  .about-img-main .ph { aspect-ratio: 3/4; }
+  .about-img-thumb {
+    position: absolute;
+    bottom: 0; right: -16px;
+    width: 56%;
+    border: 4px solid var(--black);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .about-img-thumb .ph { aspect-ratio: 4/3; font-size: 0.7rem; }
+  .about-body h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+  .about-body h3 span { color: var(--orange); }
+  .about-body p { font-size: 0.93rem; color: var(--body-text); line-height: 1.75; margin-bottom: 14px; }
+  .checklist { list-style: none; margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
+  .checklist li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--body-text);
+  }
+  .checklist li::before {
+    content: '✓';
+    width: 22px; height: 22px; min-width: 22px;
+    background: var(--orange);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 900;
+  }
+
+  /* ── PRICING ── */
+  .pricing-section {
+    background: var(--grey);
+    padding: 100px 48px;
+  }
+  .pricing-inner { max-width: 1200px; margin: 0 auto; }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 52px;
+  }
+  .price-card {
+    background: var(--black);
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .price-card:hover { border-color: var(--orange); transform: translateY(-3px); }
+  .price-card.featured { background: var(--orange); border-color: var(--orange); }
+  .price-card.featured .pc-label,
+  .price-card.featured .pc-amount,
+  .price-card.featured .pc-note { color: var(--white); }
+  .price-card.featured .pc-label { opacity: 0.75; }
+  .price-card.featured .pc-note { opacity: 0.8; }
+  .pc-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .pc-amount {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2.8rem;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .pc-amount sup { font-size: 1.1rem; vertical-align: super; }
+  .pc-note { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── GALLERY ── */
+  .gallery-section {
+    padding: 100px 48px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .gallery-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 220px 180px;
+    gap: 10px;
+  }
+  .gitem {
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    background: var(--grey-mid);
+  }
+  .gitem .ph { width: 100%; height: 100%; border-radius: 0; border: none; min-height: 0; font-size: 0.72rem; }
+  .gitem:first-child { grid-column: 1; grid-row: 1 / 3; }
+  .gitem-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(248,247,244,0.9));
+    padding: 24px 12px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--orange);
+  }
+
+  /* ── PROOF ── */
+  .proof-section {
+    background: var(--grey);
+    padding: 100px 48px;
+  }
+  .proof-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 52px;
+    align-items: start;
+  }
+  .testimonials { display: flex; flex-direction: column; gap: 16px; }
+  .tcard {
+    background: var(--black);
+    border-left: 3px solid var(--orange);
+    padding: 24px 24px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .tcard p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    opacity: 0.55;
+  }
+  .tcard-author {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--orange);
+    opacity: 0.45;
+  }
+  .pass-box {
+    background: var(--black);
+    border: 1px solid rgba(232,98,42,0.2);
+    border-radius: var(--radius);
+    padding: 44px 36px;
+    text-align: center;
+  }
+  .pass-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 6.5rem;
+    line-height: 1;
+    color: var(--orange);
+  }
+  .pass-lbl {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .pass-sub { font-size: 0.84rem; color: var(--muted); max-width: 230px; margin: 0 auto; line-height: 1.6; }
+  .area-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 22px; }
+  .area-tag {
+    background: rgba(232,98,42,0.08);
+    border: 1px solid rgba(232,98,42,0.18);
+    color: var(--body-text);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 4px 11px;
+    border-radius: 20px;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--orange);
+    padding: 80px 48px;
+  }
+  .contact-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+  }
+  .contact-h {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    text-transform: uppercase;
+    line-height: 1;
+    color: #f8f7f4;
+  }
+  .contact-sub { font-size: 1rem; color: rgba(255,255,255,0.78); margin-top: 8px; }
+  .contact-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .contact-phone {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: #f8f7f4;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.02em;
+  }
+  .contact-phone:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 44px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--orange); }
+  .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--orange); }
+  .footer-copy { font-size: 0.76rem; color: var(--muted); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 24px 24px; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .hero-right { grid-template-rows: auto auto; }
+    .hero-img-top .ph { aspect-ratio: 16/9; height: auto; }
+    .services-section { padding: 60px 24px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .banner { height: 220px; }
+    .banner-over { padding: 0 24px; }
+    .about-section { padding: 60px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .pricing-section { padding: 60px 24px; }
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-section { padding: 60px 24px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: 180px 160px 160px 160px; }
+    .gitem:first-child { grid-column: 1 / 3; grid-row: 1; }
+    .proof-section { padding: 60px 24px; }
+    .proof-grid { grid-template-columns: 1fr; }
+    .contact-section { padding: 60px 24px; }
+    .contact-inner { grid-template-columns: 1fr; }
+    footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 560px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .hero-h1 { font-size: 3rem; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Rathnew <span>Driving School</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">RSA Approved &middot; Rathnew &amp; Co. Wicklow</div>
+    <h1 class="hero-h1">Rathnew's Own<br>Driving<em>School.</em></h1>
+    <p class="hero-desc">Rathnew Driving School's instructor brings years of experience to every lesson, with deep knowledge of the Wicklow and Arklow test routes. Fully RSA-approved, patient, and local.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-orange">Book a Lesson</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">90%</div><div class="stat-lbl">Pass Rate</div></div>
+      <div><div class="stat-num">12+</div><div class="stat-lbl">EDT Lessons</div></div>
+      <div><div class="stat-num">300+</div><div class="stat-lbl">Passes</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-top">
+      <div class="ph" style="height:100%;min-height:280px;border-radius:0;border:none;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <p>Rathnew Driving School's instructor with a student</p>
+      </div>
+    </div>
+    <div class="hero-img-bottom">
+      <div class="ph" style="aspect-ratio:4/3;border-radius:0;border:none;border-right:1px solid rgba(0,0,0,0.05);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <p>Rathnew Driving School's instructor</p>
+      </div>
+      <div class="ph" style="aspect-ratio:4/3;border-radius:0;border:none;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <p>Rathnew Driving School student pass</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">RSA Approved</span>
+    <span class="ticker-item">EDT Specialist</span>
+    <span class="ticker-item">Pre-Test Lessons</span>
+    <span class="ticker-item">Motorway Driving</span>
+    <span class="ticker-item">Gift Vouchers</span>
+    <span class="ticker-item">Insurance Savings</span>
+    <span class="ticker-item">Beginners Welcome</span>
+    <span class="ticker-item">Nervous Drivers Welcome</span>
+    <span class="ticker-item">RSA Approved</span>
+    <span class="ticker-item">EDT Specialist</span>
+    <span class="ticker-item">Pre-Test Lessons</span>
+    <span class="ticker-item">Motorway Driving</span>
+    <span class="ticker-item">Gift Vouchers</span>
+    <span class="ticker-item">Insurance Savings</span>
+    <span class="ticker-item">Beginners Welcome</span>
+    <span class="ticker-item">Nervous Drivers Welcome</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-head fu">
+    <div class="label">What We Offer</div>
+    <div class="section-h">Every Lesson You Need</div>
+  </div>
+  <div class="services-grid fu">
+    <div class="svc">
+      <span class="svc-icon">🚗</span>
+      <div class="svc-name">[Rathnew Driving School service name]</div>
+      <p class="svc-desc">[Brief description of this service — what it covers and who it's for.]</p>
+      <span class="svc-arrow">→</span>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">📋</span>
+      <div class="svc-name">[Rathnew Driving School service name]</div>
+      <p class="svc-desc">[Brief description of this service — what it covers and who it's for.]</p>
+      <span class="svc-arrow">→</span>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">🎯</span>
+      <div class="svc-name">[Rathnew Driving School service name]</div>
+      <p class="svc-desc">[Brief description of this service — what it covers and who it's for.]</p>
+      <span class="svc-arrow">→</span>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">🛣️</span>
+      <div class="svc-name">[Rathnew Driving School service name]</div>
+      <p class="svc-desc">[Brief description of this service — what it covers and who it's for.]</p>
+      <span class="svc-arrow">→</span>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">🎁</span>
+      <div class="svc-name">[Rathnew Driving School service name]</div>
+      <p class="svc-desc">[Brief description of this service — what it covers and who it's for.]</p>
+      <span class="svc-arrow">→</span>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">💰</span>
+      <div class="svc-name">[Rathnew Driving School service name]</div>
+      <p class="svc-desc">[Brief description of this service — what it covers and who it's for.]</p>
+      <span class="svc-arrow">→</span>
+    </div>
+  </div>
+</section>
+<div class="banner fu">
+  <div class="ph" style="height:100%;border-radius:0;border-left:none;border-right:none;">
+    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+    <p>Road scene near Rathnew or Wicklow town</p>
+  </div>
+  <div class="banner-over">
+    <div>
+      <div class="banner-text">Rathnew's Most Trusted<br><span>Driving Instructor</span></div>
+      <div class="banner-sub">Hundreds of passes at Rathnew test centre</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="fu">
+    <div class="label">Your Instructor</div>
+    <div class="section-h">Qualified. Local. Trusted.</div>
+  </div>
+  <div class="about-grid">
+    <div class="about-imgs fu">
+      <div class="about-img-main">
+        <div class="ph" style="aspect-ratio:3/4">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <p>Portrait of Rathnew Driving School's instructor</p>
+        </div>
+      </div>
+      <div class="about-img-thumb">
+        <div class="ph" style="aspect-ratio:4/3">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <p>Rathnew Driving School student pass</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-body fu">
+      <h3>Meet <span>[Rathnew Driving School's instructor name]</span></h3>
+      <p>[Rathnew Driving School's instructor bio — who they are, years of experience, and the areas they cover.]</p>
+      <p>[A second line about their teaching style or a specific strength — e.g. local test route knowledge, experience with nervous drivers.]</p>
+      <ul class="checklist">
+        <li>[Rathnew Driving School qualification 1]</li>
+        <li>[Rathnew Driving School qualification 2]</li>
+        <li>[Rathnew Driving School local knowledge detail]</li>
+        <li>[Rathnew Driving School teaching approach]</li>
+        <li>[Rathnew Driving School — who is welcome]</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div class="fu">
+      <div class="label">Transparent Pricing</div>
+      <div class="section-h">No Surprises.</div>
+    </div>
+    <div class="pricing-grid fu">
+      <div class="price-card">
+        <div class="pc-label">1 Hour Lesson</div>
+        <div class="pc-amount"><sup>€</sup>XX</div>
+        <div class="pc-note">Rathnew Driving School's standard lesson rate</div>
+      </div>
+      <div class="price-card">
+        <div class="pc-label">2 Hour Lesson</div>
+        <div class="pc-amount"><sup>€</sup>XX</div>
+        <div class="pc-note">Rathnew Driving School's standard lesson rate</div>
+      </div>
+      <div class="price-card featured">
+        <div class="pc-label">Block of 5 Hours</div>
+        <div class="pc-amount"><sup>€</sup>XXX</div>
+        <div class="pc-note">Rathnew Driving School block booking — best value</div>
+      </div>
+      <div class="price-card">
+        <div class="pc-label">Block of 10 Hours</div>
+        <div class="pc-amount"><sup>€</sup>XXX</div>
+        <div class="pc-note">Full learner programme from Rathnew Driving School</div>
+      </div>
+      <div class="price-card">
+        <div class="pc-label">12 EDT Lessons</div>
+        <div class="pc-amount"><sup>€</sup>XXX</div>
+        <div class="pc-note">Rathnew Driving School's complete EDT package</div>
+      </div>
+      <div class="price-card">
+        <div class="pc-label">Pre-Test (2hrs)</div>
+        <div class="pc-amount"><sup>€</sup>XX</div>
+        <div class="pc-note">Pre-test prep on Arklow &amp; Wicklow test routes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="gallery-head fu">
+    <div>
+      <div class="label">Recent Passes</div>
+      <div class="section-h">Happy Students</div>
+    </div>
+    <a href="#contact" class="btn-orange">Book Your Lesson</a>
+  </div>
+  <div class="gallery-grid fu">
+    <div class="gitem">
+      <div class="ph" style="height:100%">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <p>Rathnew Driving School — feature pass photo</p>
+      </div>
+      <div class="gitem-label">Test Pass — EDT</div>
+    </div>
+    <div class="gitem">
+      <div class="ph" style="height:100%">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <p>Rathnew Driving School pass photo</p>
+      </div>
+      <div class="gitem-label">Test Pass</div>
+    </div>
+    <div class="gitem">
+      <div class="ph" style="height:100%">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <p>Rathnew Driving School pass photo</p>
+      </div>
+      <div class="gitem-label">Pre-Test Pass</div>
+    </div>
+    <div class="gitem">
+      <div class="ph" style="height:100%">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <p>Rathnew Driving School pass photo</p>
+      </div>
+      <div class="gitem-label">Test Pass</div>
+    </div>
+    <div class="gitem">
+      <div class="ph" style="height:100%">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <p>Rathnew Driving School pass photo</p>
+      </div>
+      <div class="gitem-label">EDT Pass</div>
+    </div>
+    <div class="gitem">
+      <div class="ph" style="height:100%">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <p>Rathnew Driving School pass photo</p>
+      </div>
+      <div class="gitem-label">Test Pass</div>
+    </div>
+    <div class="gitem">
+      <div class="ph" style="height:100%">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <p>Rathnew Driving School pass photo</p>
+      </div>
+      <div class="gitem-label">Test Pass</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof-section">
+  <div class="proof-inner">
+    <div class="fu">
+      <div class="label">Why Choose Us</div>
+      <div class="section-h">Trusted Across Co. Wicklow</div>
+    </div>
+    <div class="proof-grid">
+      <div class="testimonials fu">
+        <div class="tcard">
+          <p>Rathnew Driving School customer testimonial here</p>
+          <div class="tcard-author">[Name] &mdash; Rathnew / Wicklow</div>
+        </div>
+        <div class="tcard">
+          <p>Rathnew Driving School customer testimonial here</p>
+          <div class="tcard-author">[Name] &mdash; Rathnew / Wicklow</div>
+        </div>
+        <div class="tcard">
+          <p>Rathnew Driving School customer testimonial here</p>
+          <div class="tcard-author">[Name] &mdash; Rathnew / Wicklow</div>
+        </div>
+      </div>
+      <div class="pass-box fu">
+        <div class="pass-num">90%</div>
+        <div class="pass-lbl">Pass Rate</div>
+        <p class="pass-sub">Well above the national average. Hundreds of passes at Rathnew test centre.</p>
+        <div class="area-tags">
+          <span class="area-tag">Rathnew</span>
+          <span class="area-tag">Wicklow Town</span>
+          <span class="area-tag">Arklow</span>
+          <span class="area-tag">Newtown M/Kennedy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="contact-h">Ready to Get Started?</div>
+      <p class="contact-sub">Call or email to book your first lesson. Beginners always welcome.</p>
+    </div>
+    <div class="contact-actions">
+      <a href="tel:+353000000000" class="contact-phone">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        Rathnew Driving School's phone number
+      </a>
+      <a href="mailto:info@yourdrivingschool.ie" class="btn-dark">Rathnew Driving School's email</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Rathnew <span>Driving School</span></a>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="mailto:info@yourdrivingschool.ie">Rathnew Driving School's email</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 Rathnew Driving School. All rights reserved.</div>
+</footer>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">RSA Approved &middot; Your Town &amp; County</div>
+    <h1 class="hero-h1">Your Licence.<br>Your<em>Freedom.</em></h1>
+    <p class="hero-desc">Professional driving lessons for every stage of the journey. EDT, pre-test, motorway, and general tuition with a fully qualified ADI instructor.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-orange">Book a Lesson</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">90%</div><div class="stat-lbl">Pass Rate</div></div>
+      <div><div class="stat-num">12+</div><div class="stat-lbl">EDT Lessons</div></div>
+      <div><div class="stat-num">500+</div><div class="stat-lbl">Passes</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-top">
+      <div class="ph" style="height:100%;min-height:280px;border-radius:0;border:none;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <p>Hero photo — instructor or student on road</p>
+      </div>
+    </div>
+    <div class="hero-img-bottom">
+      <div class="ph" style="aspect-ratio:4/3;border-radius:0;border:none;border-right:1px solid rgba(0,0,0,0.05);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <p>Instructor photo</p>
+      </div>
+      <div class="ph" style="aspect-ratio:4/3;border-radius:0;border:none;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <p>Student pass photo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const obsRathnew = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fu').forEach(el => obsRathnew.observe(el));
+</script>
+
+</body>
+</html>
